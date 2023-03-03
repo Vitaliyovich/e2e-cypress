@@ -12,51 +12,53 @@
     <p-button label="Inactive" styleClass="p-button-sm" data-cy="show-inactive-btn" (click)="showInactive()"></p-button>
   </div>
 
-  <div *ngFor="let item of filteredList" class="field-checkbox" data-cy="todo-item">
-    <p-checkbox inputId="binary" [binary]="true" (onChange)="done()" [(ngModel)]="item.done"></p-checkbox>
+  <section>
+    <div *ngFor="let item of filteredList" class="field-checkbox" data-cy="todo-item">
+      <p-checkbox inputId="binary" [binary]="true" (onChange)="done()" [(ngModel)]="item.done"></p-checkbox>
 
-    <label
-      *ngIf="!item.edit"
-      class="label"
-      data-cy="label"
-      [for]="item.id"
-      [ngClass]="{ 'line-through': isChecked(item) }"
-      >{{ item.label }}</label
-    >
-    <input
-      *ngIf="item.edit"
-      pInputText
-      type="text"
-      class="edit-text p-inputtext-sm"
-      data-cy="edit-text"
-      [(ngModel)]="item.label"
-    />
+      <label
+        *ngIf="!item.edit"
+        class="label"
+        data-cy="label"
+        [for]="item.id"
+        [ngClass]="{ 'line-through': isChecked(item) }"
+        >{{ item.label }}</label
+      >
+      <input
+        *ngIf="item.edit"
+        pInputText
+        type="text"
+        class="edit-text p-inputtext-sm"
+        data-cy="edit-text"
+        [(ngModel)]="item.label"
+      />
 
-    <p-button
-      *ngIf="!item.edit"
-      icon="pi pi-pencil"
-      class="edit-btn"
-      styleClass="p-button-sm"
-      data-cy="edit-btn"
-      [disabled]="isChecked(item)"
-      (click)="edit(item)"
-    ></p-button>
+      <p-button
+        *ngIf="!item.edit"
+        icon="pi pi-pencil"
+        class="edit-btn"
+        styleClass="p-button-sm"
+        data-cy="edit-btn"
+        [disabled]="isChecked(item)"
+        (click)="edit(item)"
+      ></p-button>
 
-    <p-button
-      *ngIf="item.edit"
-      icon="pi pi-save"
-      class="save-btn"
-      styleClass="p-button-sm"
-      data-cy="save-btn"
-      (click)="save(item)"
-    ></p-button>
+      <p-button
+        *ngIf="item.edit"
+        icon="pi pi-save"
+        class="save-btn"
+        styleClass="p-button-sm"
+        data-cy="save-btn"
+        (click)="save(item)"
+      ></p-button>
 
-    <p-button
-      icon="pi pi-trash"
-      class="delete-btn"
-      styleClass="p-button-sm p-button-danger"
-      data-cy="delete-btn"
-      (click)="delete(item)"
-    ></p-button>
-  </div>
+      <p-button
+        icon="pi pi-trash"
+        class="delete-btn"
+        styleClass="p-button-sm p-button-danger"
+        data-cy="delete-btn"
+        (click)="delete(item)"
+      ></p-button>
+    </div>
+  </section>
 </div>
