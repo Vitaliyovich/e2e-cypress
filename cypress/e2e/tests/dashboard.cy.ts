@@ -63,7 +63,7 @@ describe('example to-do app', () => {
     cy.get('[data-cy="todo-item"]:nth-child(1) [data-cy="label"]').should('have.text', 'Hello World');
   });
 
-  it('Test input text in todo list', () => {
+  it('Test input text in todo list, checkbox, edit and delete item', () => {
     cy.visit('/');
     cy.get(S.todoLink).click();
 

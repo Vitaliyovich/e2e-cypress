@@ -55,6 +55,6 @@ export class PostComponent implements OnInit {
   }
 
   private getBaseUrl(): string {
-    return '//jsonplaceholder.typicode.com';
+    return '/api';
   }
 }

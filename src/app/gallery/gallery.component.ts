@@ -29,7 +29,7 @@ export class GalleryComponent implements OnInit {
   }
 
   private loadGallery(start: number, limit: number): void {
-    const URL = `//jsonplaceholder.typicode.com/photos?_start=${start}&_limit=${limit}`;
+    const URL = `/api/photos?_start=${start}&_limit=${limit}`;
     this.httpClient.get<Image[]>(URL).subscribe((gallery) => {
       this.gallery = gallery;
     });

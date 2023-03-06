@@ -117,7 +117,7 @@ export class PostsComponent implements OnInit {
   }
 
   private getBaseUrl(): string {
-    return '//jsonplaceholder.typicode.com';
+    return '/api';
   }
 
   private getHeaders(): Record<string, string> {
