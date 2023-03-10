@@ -1,9 +1,10 @@
-import {faker} from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 
 describe('Posts API', () => {
   context('GET /api/posts', () => {
     it('gets a list of posts', () => {
       cy.request('GET', 'http://localhost:4200/api/posts').then((response) => {
+        // console.log(response);
         expect(response.status).to.eq(200);
         expect(response.body.length).to.eq(100);
       });
@@ -54,6 +55,7 @@ describe('Posts API', () => {
       });
     });
   });
+
   context('DELETE /api/posts/:postID', () => {
     it('deletes a post', () => {
       const newPost = {
@@ -74,15 +76,14 @@ describe('Posts API', () => {
         });
       });
     });
-  });
-  describe('Comments API', () => {
-  context('GET /api/comments', () => {
-    it('gets a list of comments', () => {
-      cy.request('GET', 'http://localhost:4200/api/comments').then((response) => {
-        expect(response.status).to.eq(200);
-        expect(response.body.length).to.eq(500);
+
+    context('GET /api/comments', () => {
+      it('gets a list of comments', () => {
+        cy.request('GET', 'http://localhost:4200/api/comments').then((response) => {
+          expect(response.status).to.eq(200);
+          expect(response.body.length).to.eq(500);
+        });
       });
     });
   });
-});
 });
