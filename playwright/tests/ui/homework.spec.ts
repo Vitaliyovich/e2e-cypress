@@ -13,7 +13,7 @@ test.describe('Todo', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/todo');
   });
-  test.only('Add 2 todo items', async ({ page }) => {
+  test('Add 2 todo items', async ({ page }) => {
     await page.locator(S.inputTodo).fill('item 1');
     await page.locator(S.addButton).click();
 
